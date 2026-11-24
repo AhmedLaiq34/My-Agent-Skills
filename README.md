@@ -6,11 +6,48 @@ A collection of reusable agent skills by Ahmed Laiq. Each skill packages instruc
 
 | Skill | What it does |
 | --- | --- |
+| [Poster Studio](poster-studio/SKILL.md) | Turns a topic and a short brief into finished posters. Ask for one design or several distinct options, each delivered as a separate file. |
 | [Website Design Specification](website-design-spec/SKILL.md) | Inspects a website URL and produces a detailed UI/UX design specification, design tokens, and supporting evidence. |
+
+## Install a skill in Codex
+
+Paste either request into a Codex chat. The installer fetches the complete skill folder from this repository.
+
+```text
+$skill-installer Install https://github.com/AhmedLaiq34/My-Agent-Skills/tree/main/poster-studio
+```
+
+```text
+$skill-installer Install https://github.com/AhmedLaiq34/My-Agent-Skills/tree/main/website-design-spec
+```
+
+Once installed, invoke the skill by name in a prompt. For a local checkout or another agent, see the [manual installation instructions](#download-the-repository).
+
+## Poster Studio
+
+Give the skill a subject and a sentence about the audience, mood, or message. Include exact wording in quotes when it needs to appear on the poster.
+
+```text
+$poster-studio Make two posters for a university radiology event. Use only “Radiology Day” and “Coming Soon”. Make them bold enough to read on a phone.
+```
+
+Poster Studio develops the visual concepts, plans the typography, and checks each exported design at full size and thumbnail size. In Codex it can delegate each design to a dedicated image artist. Illustrated posters use image generation, so run them in an agent with that capability.
+
+### Two takes on Radiology Day
+
+These posters came from the university event project that inspired the skill. Select either image to open the full-size PNG.
+
+| Peace sign | Chest print |
+| --- | --- |
+| [<img src="examples/poster-studio/peace-sign.png" width="320" alt="Radiology Day poster with a cyan X-ray hand flashing a peace sign beside oversized ivory lettering.">](examples/poster-studio/peace-sign.png) | [<img src="examples/poster-studio/chest-print.png" width="320" alt="Radiology Day poster with a cobalt chest X-ray over a vermilion circle on cream paper.">](examples/poster-studio/chest-print.png) |
 
 ## Website Design Specification
 
 Give `website-design-spec` a URL to document the website's visible design and behavior. It guides the agent through rendered pages, representative page templates, responsive layouts, and interactions.
+
+```text
+$website-design-spec Audit https://groq.com. Compare desktop and mobile, then save the specification, design tokens, and evidence.
+```
 
 The audit covers:
 
@@ -40,7 +77,7 @@ Use an agent that can read local skill files. A visual audit also needs a render
 
 The optional browser helper requires Playwright, Chrome/Chromium, and a Node.js version supported by the installed Playwright release. These dependencies are only needed if the agent uses that helper. See [inspection methods and helper setup](website-design-spec/references/inspection-methods.md).
 
-**Install the entire `website-design-spec/` folder.** Keep `references/`, `scripts/`, and `agents/` alongside `SKILL.md`, because the instructions refer to those files.
+Install the entire folder for each skill you choose. The manual commands below copy both skills. To install just one, keep only its source folder in the copy command.
 
 ## Download the repository
 
@@ -55,16 +92,16 @@ If you already cloned it, open that checkout and run `git pull --ff-only` instea
 
 The installation commands below use a macOS/Linux shell and run from the repository root. On Windows, copy the same complete folder to your agent's documented skills location using File Explorer or PowerShell.
 
-## Install and use with Codex
+## Manual installation for Codex
 
 Copy the folder into your personal skills directory:
 
 ```bash
 mkdir -p "$HOME/.agents/skills"
-cp -R ./website-design-spec "$HOME/.agents/skills/"
+cp -R ./poster-studio ./website-design-spec "$HOME/.agents/skills/"
 ```
 
-The installed entry point is `~/.agents/skills/website-design-spec/SKILL.md`. For a project-only installation, copy the folder into that project's `.agents/skills/` instead.
+Each skill has its own folder under `~/.agents/skills/`. For a project-only installation, copy the folder into that project's `.agents/skills/` instead.
 
 Open Codex CLI or the IDE extension and enter this **in the agent's prompt**, not in your shell:
 
@@ -82,14 +119,16 @@ Copy the folder into your personal Claude Code skills directory:
 
 ```bash
 mkdir -p "$HOME/.claude/skills"
-cp -R ./website-design-spec "$HOME/.claude/skills/"
+cp -R ./poster-studio ./website-design-spec "$HOME/.claude/skills/"
 ```
 
-The installed entry point is `~/.claude/skills/website-design-spec/SKILL.md`. For a project-only installation, copy the folder into that project's `.claude/skills/` instead.
+Each skill has its own folder under `~/.claude/skills/`. For a project-only installation, copy the folder into that project's `.claude/skills/` instead.
 
-Start Claude Code in the directory where you want the audit output, then enter:
+Start Claude Code in the directory where you want the output. Invoke either skill in the chat.
 
 ```text
+/poster-studio Make a poster for a late-night reading club. Use warm lamplight and a quiet mood.
+
 /website-design-spec Audit https://groq.com and save the specification, tokens, and evidence to ./design-audits/groq.
 ```
 
@@ -101,10 +140,10 @@ Copy the folder into your personal Gemini CLI skills directory:
 
 ```bash
 mkdir -p "$HOME/.gemini/skills"
-cp -R ./website-design-spec "$HOME/.gemini/skills/"
+cp -R ./poster-studio ./website-design-spec "$HOME/.gemini/skills/"
 ```
 
-The installed entry point is `~/.gemini/skills/website-design-spec/SKILL.md`. For a project-only installation, copy the folder into that project's `.gemini/skills/` instead. Gemini also recognizes `.agents/skills/` locations, so an existing Codex installation there can be discovered by Gemini.
+Each skill has its own folder under `~/.gemini/skills/`. For a project-only installation, copy the folder into that project's `.gemini/skills/` instead. Gemini also recognizes `.agents/skills/` locations, so an existing Codex installation there can be discovered by Gemini.
 
 In Gemini CLI, refresh and confirm discovery:
 
@@ -116,6 +155,8 @@ In Gemini CLI, refresh and confirm discovery:
 Then ask:
 
 ```text
+Use the poster-studio skill to make a poster for a late-night reading club. Use warm lamplight and a quiet mood.
+
 Use the website-design-spec skill to audit https://groq.com and save the specification, tokens, and evidence to ./design-audits/groq.
 ```
 
