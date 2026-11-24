@@ -33,13 +33,19 @@ $poster-studio Make two posters for a university radiology event. Use only “Ra
 
 Poster Studio develops the visual concepts, plans the typography, and checks each exported design at full size and thumbnail size. In Codex it can delegate each design to a dedicated image artist. Illustrated posters use image generation, so run them in an agent with that capability.
 
-### Two takes on Radiology Day
+<a id="two-takes-on-radiology-day"></a>
 
-These posters came from the university event project that inspired the skill. Select either image to open the full-size PNG.
+### Five takes on Radiology Day
+
+The brief for this university event called for a bold poster using only “Radiology Day” and “Coming Soon.” Across five designs, the same copy takes on the feel of a campus gig, a sneaker ad, or a screen print. Select any poster to open the full-size PNG.
 
 | Peace sign | Chest print |
 | --- | --- |
 | [<img src="examples/poster-studio/peace-sign.png" width="320" alt="Radiology Day poster with a cyan X-ray hand flashing a peace sign beside oversized ivory lettering.">](examples/poster-studio/peace-sign.png) | [<img src="examples/poster-studio/chest-print.png" width="320" alt="Radiology Day poster with a cobalt chest X-ray over a vermilion circle on cream paper.">](examples/poster-studio/chest-print.png) |
+
+| Sneaker | Headphones | Multicolor chest X-ray |
+| --- | --- | --- |
+| [<img src="examples/poster-studio/sneaker.png" width="260" alt="An X-ray shows the bones of a foot inside a high-top sneaker against bright orange.">](examples/poster-studio/sneaker.png) | [<img src="examples/poster-studio/headphones.png" width="260" alt="A cyan skull wears red over-ear headphones beneath a curved cream headline.">](examples/poster-studio/headphones.png) | [<img src="examples/poster-studio/multicolor-chest.png" width="260" alt="Overlapping cyan, magenta, and yellow rib cages create a sense of movement above heavy black lettering.">](examples/poster-studio/multicolor-chest.png) |
 
 ## Website Design Specification
 
