@@ -1,0 +1,4 @@
+interface:
+  display_name: "Website Design Specification"
+  short_description: "Extract evidence-backed UI and UX specifications"
+  default_prompt: "Use $website-design-spec to inspect this website and produce a detailed, evidence-backed design specification: <URL>"
