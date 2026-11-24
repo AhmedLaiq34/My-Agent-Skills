@@ -1,0 +1,4 @@
+interface:
+  display_name: "Poster Studio"
+  short_description: "Turn a short brief into original, art-directed posters"
+  default_prompt: "Use $poster-studio to make a poster for a neighborhood night market with a playful late-night mood."
